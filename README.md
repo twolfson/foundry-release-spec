@@ -1,23 +1,19 @@
-# foundry-release-spec [![Build status](https://travis-ci.org/twolfson/foundry-release-spec.png?branch=master)](https://travis-ci.org/twolfson/foundry-release-spec)
+# foundry-release-spec
 
-Specification for foundry release plugins
+Specification for [foundry][] release plugins
 
-## Getting Started
-Install the module with: `npm install foundry-release-spec`
+[foundry]: https://github.com/twolfson/foundry
 
-```javascript
-var foundry_release_spec = require('foundry-release-spec');
-foundry_release_spec.awesome(); // "awesome"
-```
+This is intended to serve as documentation for consistency between [foundry][] release plugins.
 
 ## Documentation
-_(Coming soon)_
+A [foundry][] release plugin should expose the following functions on its `exports`.
 
-## Examples
-_(Coming soon)_
+### `exports.setVersion(version, cb)`
+TODO: Move from version to options.
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
+In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Donating
 Support this project and [others by twolfson][gittip] via [gittip][].
