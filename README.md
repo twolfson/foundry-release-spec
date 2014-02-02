@@ -9,8 +9,29 @@ This is intended to serve as documentation for consistency between [foundry][] r
 ## Documentation
 A [foundry][] release plugin should expose the following functions on its `exports`.
 
-### `exports.setVersion(version, cb)`
-TODO: Move from version to options.
+### `exports.setVersion(params, cb)`
+Function that adjusts the package's version (e.g. bump `package.json`).
+
+**This is expected to detect whether the package metadata exists or not. This means it can run when the metadata store does not exist (e.g. no `package.json`).**
+
+- params `Object` - Collection of parameters to set version based off of
+    - version `String` - Semantic version to adjust the package to
+        - Semantic version documentation can be found at http://semver.org/
+    - message `String` - Short description about release (comparable to `git commit's -m`)
+    - description `String|null` - Optional long description for release (comparable to `git commit's body`)
+- cb `Function` - Error-first callback method to run when version is done being set
+    - The function signature should be `(err)`
+
+### `exports.register(params, cb)`
+Optional function that registers package with its registry (e.g. `bower register`, `python setup.py register`).
+
+**As with `exports.setVersion`, this must detect whether the package metadata exists or not.**
+
+> Currently, this function will only be run when `0.1.0` releases occur. This should be configurable when [twolfson/foundry#7][] is resolved.
+
+[twolfson/foundry#7]: https://github.com/twolfson/foundry/issues/7
+
+`params` and `cb` are the same format as in `exports.setVersion`.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style.
