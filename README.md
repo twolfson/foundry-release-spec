@@ -10,7 +10,7 @@ This is intended to serve as documentation for consistency between [foundry][] r
 A [foundry][] release plugin should expose the following functions on its `exports`.
 
 ### `exports.setVersion(params, cb)`
-Function that adjusts the package's version (e.g. bump `package.json`).
+Optional function that adjusts the package's version (e.g. bump `package.json`).
 
 **This is expected to detect whether the package metadata exists or not. This means it can run when the metadata store does not exist (e.g. no `package.json`).**
 
@@ -30,6 +30,13 @@ Optional function that registers package with its registry (e.g. `bower register
 > Currently, this function will only be run when `0.1.0` releases occur. This should be configurable when [twolfson/foundry#7][] is resolved.
 
 [twolfson/foundry#7]: https://github.com/twolfson/foundry/issues/7
+
+`params` and `cb` are the same format as in `exports.setVersion`.
+
+### `exports.publish(params, cb)`
+Optional function that publishes package to its registry (e.g. `npm publish`).
+
+**As with `exports.setVersion`, this must detect whether the package metadata exists or not.**
 
 `params` and `cb` are the same format as in `exports.setVersion`.
 
