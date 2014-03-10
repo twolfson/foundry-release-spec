@@ -12,8 +12,9 @@ A [foundry][] release plugin should expose the following functions on its `expor
 It is expected that [foundry][] will run the plugins in the order:
 
 1. setVersion
-2. register
-3. publish
+2. commit
+3. register
+4. publish
 
 ### `exports.setVersion(params, cb)`
 Optional function that adjusts the package's version (e.g. bump `package.json`).
@@ -27,6 +28,13 @@ Optional function that adjusts the package's version (e.g. bump `package.json`).
     - description `String|null` - Optional long description for release (comparable to `git commit's body`)
 - cb `Function` - Error-first callback method to run when version is done being set
     - The function signature should be `(err)`
+
+### `exports.commit(params, cb)`
+Optional function that commits any updates to the package's version control (e.g. `git commit`).
+
+**As with `exports.setVersion`, this must detect whether the package metadata exists or not.**
+
+`params` and `cb` are the same format as in `exports.setVersion`.
 
 ### `exports.register(params, cb)`
 Optional function that registers package with its registry (e.g. `bower register`, `python setup.py register`).
