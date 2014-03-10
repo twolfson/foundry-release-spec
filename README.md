@@ -9,7 +9,7 @@ This is intended to serve as documentation for consistency between [foundry][] r
 ## Documentation
 A [foundry][] release plugin should expose the following functions on its `exports`.
 
-It is expected that [foundry][] will run the plugins in the order of:
+It is expected that [foundry][] will run the plugins in the order:
 
 1. setVersion
 2. register
