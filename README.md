@@ -9,6 +9,12 @@ This is intended to serve as documentation for consistency between [foundry][] r
 ## Documentation
 A [foundry][] release plugin should expose the following functions on its `exports`.
 
+It is expected that [foundry][] will run the plugins in the order of:
+
+1. setVersion
+2. register
+3. publish
+
 ### `exports.setVersion(params, cb)`
 Optional function that adjusts the package's version (e.g. bump `package.json`).
 
