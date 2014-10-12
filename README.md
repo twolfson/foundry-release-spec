@@ -11,48 +11,48 @@ A [foundry][] release plugin should expose the following functions on its `expor
 
 It is expected that [foundry][] will run the plugins in the order:
 
-1. setVersion
+1. updateFiles
 2. commit
 3. register
 4. publish
 
-### `exports.setVersion(params, cb)`
-Optional function that adjusts the package's version (e.g. bump `package.json`).
+### `exports.updateFiles(params, cb)`
+Optional function that adjusts the package contents (e.g. bump `version` in `package.json`, add to `CHANGELOG`).
 
 **This is expected to detect whether the package metadata exists or not. This means it can run when the metadata store does not exist (e.g. no `package.json`).**
 
-- params `Object` - Collection of parameters to set version based off of
+- params `Object` - Collection of parameters to update files based off of
     - version `String` - Semantic version to adjust the package to
         - Semantic version documentation can be found at http://semver.org/
     - message `String` - Short description about release (comparable to `git commit's -m`)
     - description `String|null` - Optional long description for release (comparable to `git commit's body`)
-- cb `Function` - Error-first callback method to run when version is done being set
+- cb `Function` - Error-first callback method to run when file updates are done
     - The function signature should be `(err)`
 
 ### `exports.commit(params, cb)`
 Optional function that commits any updates to the package's version control (e.g. `git commit`).
 
-**As with `exports.setVersion`, this must detect whether the package metadata exists or not.**
+**As with `exports.updateFiles`, this must detect whether the package metadata exists or not.**
 
-`params` and `cb` are the same format as in `exports.setVersion`.
+`params` and `cb` are the same format as in `exports.updateFiles`.
 
 ### `exports.register(params, cb)`
 Optional function that registers package with its registry (e.g. `bower register`, `python setup.py register`).
 
-**As with `exports.setVersion`, this must detect whether the package metadata exists or not.**
+**As with `exports.updateFiles`, this must detect whether the package metadata exists or not.**
 
 > Currently, this function will only be run when `0.1.0` releases occur. This should be configurable when [twolfson/foundry#7][] is resolved.
 
 [twolfson/foundry#7]: https://github.com/twolfson/foundry/issues/7
 
-`params` and `cb` are the same format as in `exports.setVersion`.
+`params` and `cb` are the same format as in `exports.updateFiles`.
 
 ### `exports.publish(params, cb)`
 Optional function that publishes package to its registry (e.g. `npm publish`).
 
-**As with `exports.setVersion`, this must detect whether the package metadata exists or not.**
+**As with `exports.updateFiles`, this must detect whether the package metadata exists or not.**
 
-`params` and `cb` are the same format as in `exports.setVersion`.
+`params` and `cb` are the same format as in `exports.updateFiles`.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style.
