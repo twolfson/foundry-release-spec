@@ -7,7 +7,7 @@ Specification for [foundry][] release plugins
 This is intended to serve as documentation for consistency between [foundry][] release plugins.
 
 ## Documentation
-A [foundry][] release plugin should expose the following functions on its `exports`.
+A [foundry][] release plugin should expose the following functions and metadata on its `exports`.
 
 It is expected that [foundry][] will run the plugins in the order:
 
@@ -15,6 +15,14 @@ It is expected that [foundry][] will run the plugins in the order:
 2. commit
 3. register
 4. publish
+
+### `exports.specVersion`
+Semver string for the current version of `foundry-release-spec` it is supporting. This can be determined by looking at this repo's latest `git tag`.
+
+```js
+// Example
+exports.specVersion = '1.0.0';
+```
 
 ### `exports.updateFiles(params, cb)`
 Optional function that adjusts the package contents (e.g. bump `version` in `package.json`, add to `CHANGELOG`).
