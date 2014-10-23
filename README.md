@@ -19,6 +19,8 @@ It is expected that [foundry][] will run the plugins in the order:
 ### `exports.specVersion`
 Semver string for the current version of `foundry-release-spec` it is supporting. This can be determined by looking at this repo's latest `git tag`.
 
+https://github.com/twolfson/foundry-release-spec/tags
+
 ```js
 // Example
 exports.specVersion = '1.0.0';
