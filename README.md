@@ -6,6 +6,11 @@ Specification for [foundry][] release tools
 
 This is intended to serve as documentation for consistency between [foundry][] release tool.
 
+## Version
+This documentation is for version:
+
+**2.0.0**
+
 ## Documentation
 A [foundry][] release tool is a CLI that exposes the following commands.
 
@@ -29,7 +34,7 @@ https://github.com/twolfson/foundry-release-spec/tags
 ```bash
 $ # Example
 $ foundry-release-my-plugin --spec-version
-1.0.0
+2.0.0
 ```
 
 ### `update-files <version> <message>`
