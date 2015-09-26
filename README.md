@@ -26,14 +26,14 @@ Semver string for the current version of `foundry-release-spec` it is supporting
 
 https://github.com/twolfson/foundry-release-spec/tags
 
-```js
-// Example
+```bash
+$ # Example
 $ foundry-release-my-plugin --spec-version
 1.0.0
 ```
 
 ### `update-files <version> <message>`
-Function that adjusts the package contents (e.g. bump `version` in `package.json`, add to `CHANGELOG`).
+Command that adjusts the package contents (e.g. bump `version` in `package.json`, add to `CHANGELOG`).
 
 - version `String` - Semantic version to adjust the package to
     - Semantic version documentation can be found at http://semver.org/
@@ -43,30 +43,40 @@ Function that adjusts the package contents (e.g. bump `version` in `package.json
 
 To denote failures, please exit with a non-zero exit code.
 
-### `exports.commit(params, cb)`
-Optional function that commits any updates to the package's version control (e.g. `git commit`).
+```bash
+$ # Example
+$ foundry-release-my-plugin updates-files "1.0.0" "Release 1.0.0"
+```
 
-**As with `exports.updateFiles`, this must detect whether the package metadata exists or not.**
+### `commit <version> <message>`
+Command that commits any updates to the package's version control (e.g. `git commit`).
 
-`params` and `cb` are the same format as in `exports.updateFiles`.
+`version`, `message` and stdio are the same format as in `update-files`.
 
-### `exports.register(params, cb)`
-Optional function that registers package with its registry (e.g. `bower register`, `python setup.py register`).
+```bash
+$ # Example
+$ foundry-release-my-plugin commit "1.0.0" "Release 1.0.0"
+```
 
-**As with `exports.updateFiles`, this must detect whether the package metadata exists or not.**
+### `register <version> <message>`
+Command that registers package with its registry (e.g. `bower register`, `python setup.py register`).
 
-> Currently, this function will only be run when `0.1.0` releases occur. This should be configurable when [twolfson/foundry#7][] is resolved.
+`version`, `message` and stdio are the same format as in `update-files`.
 
-[twolfson/foundry#7]: https://github.com/twolfson/foundry/issues/7
+```bash
+$ # Example
+$ foundry-release-my-plugin register "1.0.0" "Release 1.0.0"
+```
 
-`params` and `cb` are the same format as in `exports.updateFiles`.
+### `publish <version> <message>`
+Command that publishes package to its registry (e.g. `npm publish`).
 
-### `exports.publish(params, cb)`
-Optional function that publishes package to its registry (e.g. `npm publish`).
+`version`, `message` and stdio are the same format as in `update-files`.
 
-**As with `exports.updateFiles`, this must detect whether the package metadata exists or not.**
-
-`params` and `cb` are the same format as in `exports.updateFiles`.
+```bash
+$ # Example
+$ foundry-release-my-plugin publish "1.0.0" "Release 1.0.0"
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style.
