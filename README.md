@@ -1,29 +1,35 @@
 # foundry-release-spec
 
-Specification for [foundry][] release plugins
+Specification for [foundry][] release tools
 
 [foundry]: https://github.com/twolfson/foundry
 
-This is intended to serve as documentation for consistency between [foundry][] release plugins.
+This is intended to serve as documentation for consistency between [foundry][] release tool.
 
 ## Documentation
-A [foundry][] release plugin should expose the following functions and metadata on its `exports`.
+A [foundry][] release tool is a CLI that exposes the following commands.
 
-It is expected that [foundry][] will run the plugins in the order:
+It is expected that [foundry][] will run commands in the order:
 
-1. updateFiles
+1. update-files
 2. commit
 3. register
 4. publish
 
-### `exports.specVersion`
+### Framework
+For convenience, we have written a framework called [foundry-release-base][]. This will alleviate the majority of the CLI integration.
+
+// TODO: Build foundry-release-base and link it
+
+### `--spec-version`
 Semver string for the current version of `foundry-release-spec` it is supporting. This can be determined by looking at this repo's latest `git tag`.
 
 https://github.com/twolfson/foundry-release-spec/tags
 
 ```js
 // Example
-exports.specVersion = '1.0.0';
+$ foundry-release-my-plugin --spec-version
+1.0.0
 ```
 
 ### `exports.updateFiles(params, cb)`
