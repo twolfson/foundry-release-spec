@@ -32,18 +32,16 @@ $ foundry-release-my-plugin --spec-version
 1.0.0
 ```
 
-### `exports.updateFiles(params, cb)`
-Optional function that adjusts the package contents (e.g. bump `version` in `package.json`, add to `CHANGELOG`).
+### `update-files <version> <message>`
+Function that adjusts the package contents (e.g. bump `version` in `package.json`, add to `CHANGELOG`).
 
-**This is expected to detect whether the package metadata exists or not. This means it can run when the metadata store does not exist (e.g. no `package.json`).**
+- version `String` - Semantic version to adjust the package to
+    - Semantic version documentation can be found at http://semver.org/
+- message `String` - Short description about release (comparable to `git commit's -m`)
 
-- params `Object` - Collection of parameters to update files based off of
-    - version `String` - Semantic version to adjust the package to
-        - Semantic version documentation can be found at http://semver.org/
-    - message `String` - Short description about release (comparable to `git commit's -m`)
-    - description `String|null` - Optional long description for release (comparable to `git commit's body`)
-- cb `Function` - Error-first callback method to run when file updates are done
-    - The function signature should be `(err)`
+`stdin`, `stdout`, and `stderr` will be piped to users when `foundry` is running. Please include any user-specific information there.
+
+To denote failures, please exit with a non-zero exit code.
 
 ### `exports.commit(params, cb)`
 Optional function that commits any updates to the package's version control (e.g. `git commit`).
