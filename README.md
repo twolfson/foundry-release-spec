@@ -24,7 +24,9 @@ It is expected that [foundry][] will run commands in the order:
 ### Framework
 For convenience, we have written a framework called [foundry-release-base][]. This will alleviate the majority of the CLI integration.
 
-// TODO: Build foundry-release-base and link it
+https://github.com/twolfson/foundry-release-base
+
+[foundry-release-base]: https://github.com/twolfson/foundry-release-base
 
 ### `--spec-version`
 Semver string for the current version of `foundry-release-spec` it is supporting. This can be determined by looking at this repo's latest `git tag`.
