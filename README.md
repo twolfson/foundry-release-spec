@@ -89,12 +89,12 @@ $ foundry-release-my-plugin publish "1.0.0" "Release 1.0.0"
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Donating
-Support this project and [others by twolfson][gittip] via [gittip][].
+Support this project and [others by twolfson][twolfson-projects] via [donations][twolfson-support-me].
 
-[![Support via Gittip][gittip-badge]][gittip]
+<http://twolfson.com/support-me>
 
-[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.png
-[gittip]: https://www.gittip.com/twolfson/
+[twolfson-projects]: http://twolfson.com/projects
+[twolfson-support-me]: http://twolfson.com/support-me
 
 ## Unlicense
 As of Feb 01 2014, Todd Wolfson has released this repository and its contents to the public domain.
